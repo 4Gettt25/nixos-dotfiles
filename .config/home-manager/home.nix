@@ -33,8 +33,8 @@
       "$HOME/.local/bin"
     ];
 
-    username = "demeter";
-    homeDirectory = "/home/demeter";
+    username = "felixg";
+    homeDirectory = "/home/felixg";
     stateVersion = "21.11";
   };
 
