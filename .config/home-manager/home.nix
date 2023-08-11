@@ -45,13 +45,13 @@
   };
 
   gtk.gtk3.bookmarks = [
-    "file:///home/demeter/Documents"
-    "file:///home/demeter/Music"
-    "file:///home/demeter/Pictures"
-    "file:///home/demeter/Videos"
-    "file:///home/demeter/Downloads"
-    "file:///home/demeter/Projects Projects"
-    "file:///home/demeter/School School"
+    "file:///home/felixg/Documents"
+    "file:///home/felixg/Music"
+    "file:///home/felixg/Pictures"
+    "file:///home/felixg/Videos"
+    "file:///home/felixg/Downloads"
+    "file:///home/felixg/Projects Projects"
+    "file:///home/felixg/School School"
   ];
 
   services = {
