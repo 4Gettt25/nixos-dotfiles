@@ -24,7 +24,7 @@ in
   home.packages = [ launcher ];
   wayland.windowManager.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
+    enableNvidiaPatches = false;
     extraConfig = ''
       source=~/.config/hypr/monitors.conf
       source=~/.config/hypr/settings.conf
