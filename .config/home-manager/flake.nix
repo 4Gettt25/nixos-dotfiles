@@ -1,44 +1,34 @@
 {
-  description = "Home Manager configuration of Aylur";
+  description = "Your new nix config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixgl.url = "github:guibou/nixGL";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = github:nix-community/home-manager;
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, nixgl,  home-manager,  ... }:
-  let 
-    username = "demeter";
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      overlays = [ nixgl.overlay ];
-      config.allowUnfree = true;
-    };
+  outputs = { nixpkgs, home-manager,  ... }:
+  let
+    system = "x86_64-linux";
   in
- {
+  {
     nixosConfigurations = {
       nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           /etc/nixos/configuration.nix
           home-manager.nixosModules.home-manager
-  ];
-};
-}
-{
-    homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
-      pkgs = pkgs;
-      modules = [
-        ./home.nix
-        {
-          home.username = ${username};
-          home.homeDirectory = "/home/${username}";
-        }
-      ];
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.felixg = /home/felixg/.config/home-manager/home.nix;
+            };
+          }
+        ];
+      };
     };
   };
 }
