@@ -18,15 +18,8 @@
       overlays = [ nixgl.overlay ];
       config.allowUnfree = true;
     };
-  in {
-nixosConfigurations = {
-nixos = nixpkgs.lib.nixosSystem {
-modules = [
-/etc/nixos/configuration.nix
-    ];
-  };
-};
-in {
+  in
+  {
     homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
       modules = [
@@ -34,9 +27,8 @@ in {
         {
           home.username = felixg;
           home.homeDirectory = "/home/${username}";
-          }
-        ];
-      };
+        }
+      ];
     };
   };
 }
