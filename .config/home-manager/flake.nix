@@ -12,7 +12,7 @@
 
   outputs = { nixpkgs, nixgl,  home-manager,  ... }:
   let 
-    username = "felixg";
+    username = "demeter";
     pkgs = import nixpkgs {
       system = "x86_64-linux";
       overlays = [ nixgl.overlay ];
@@ -25,7 +25,7 @@
       modules = [
         ./home.nix
         {
-          home.username = felixg;
+          home.username = username;
           home.homeDirectory = "/home/${username}";
         }
       ];
