@@ -19,13 +19,23 @@
       config.allowUnfree = true;
     };
   in
-  {
+ {
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          /etc/nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+  ];
+};
+}
+{
     homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
       modules = [
         ./home.nix
         {
-          home.username = username;
+          home.username = ${username};
           home.homeDirectory = "/home/${username}";
         }
       ];
