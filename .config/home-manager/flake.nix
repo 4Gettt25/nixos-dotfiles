@@ -25,7 +25,7 @@ modules = [
 /etc/nixos/configuration.nix
     ];
   };
-}
+};
 in {
     homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
       pkgs = pkgs;
